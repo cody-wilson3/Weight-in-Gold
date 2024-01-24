@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'gold/style.css' %}">
+    <meta charset="utf-8">
+    <title>Worth Your Weight in Gold</title>
+    <script type="text/javascript" src="{% static 'gold/JSsource.js' %}" defer></script>
+</head>
+
+<body>
+    <nav>
+        {% include './navBar.html' %}
+        <div id="token">{% csrf_token %}</div>
+    </nav>
+    <div id="bottomTitleBlock">
+        <h2>Worth Your Weight in Gold</h2>
+    </div>
+    <div id="instructionsBlock">
+        <p class="instructions">Input your weight and press the "=" button to see what you're worth!</p>
+        <p class="instructions">For your privacy, results are removed when clicked.</p>
+        <div class="instructions">
+            <input type="number" value=0 id="userWeight" class="inputVal">
+            <select name="unitWeight" id="unitWeight" class="inputVal">
+                <option value='T'>U.S. Ton</option>
+                <option value='g'>Gram</option>
+                <option value='t_oz'>*Troy Ounce</option>
+                <option value='kg'>Kilogram</option>
+                <option value='lb'>Imperial Pound</option>
+                <option value='oz'>Ounce</option>
+            </select>
+            <button id="equals" class="inputVal">=</button>
+        </div>
+        <div id="error"></div>
+        <div class="instructions" id="updateThis">Awaiting instruction...
+        </div>
+    </div>
+    <div id="endBlock">
+        <div id="centeredDiv"></div>
+    </div>
+
+</body>
+
+
+
+
+
+</html>

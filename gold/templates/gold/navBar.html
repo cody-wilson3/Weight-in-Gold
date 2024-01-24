@@ -1,0 +1,21 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>NavBar</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'gold/style.css' %}">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <nav id="navBar">
+        <div id="topURLDiv">
+            <a href="{% url 'index' %}" class="toplink">Weight in Gold</a>
+            <a href="{% url 'plan' %}" class="toplink">Software Development Plan</a>
+        </div>
+    </nav>
+</body>
+
+</html>

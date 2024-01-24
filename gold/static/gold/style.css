@@ -1,0 +1,148 @@
+body {
+    display: block;
+    flex-direction: row;
+    color: white;
+}
+
+#navBar {
+    background-color: rgb(68, 68, 69);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 43px;
+}
+
+a {
+    padding: 15px;
+    border-radius: 30px;
+    background-color: rgb(75, 73, 110);
+    border: 2px solid rgb(13, 17, 61);
+    color: white;
+}
+
+#bottomTitleBlock {
+    background-color: rgb(68, 68, 69);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: center;
+    padding-bottom: 1px;
+}
+
+.goodForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 5px;
+    padding: 12px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgb(11, 230, 11);
+}
+
+.freshExp {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: rgb(170, 170, 170);
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.styledDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#topURLDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.toplink {
+    margin: 10px;
+}
+
+h2 {
+    margin-top: 0px;
+    padding-top: 15px;
+}
+
+#instructionsBlock {
+    padding-top: 15px;
+    right: 0;
+    left: 0;
+    background-color: rgb(185, 197, 10);
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    border-radius: 15px;
+    height: 20vh;
+}
+
+.instructions {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.inputVal {
+    margin: 4px;
+}
+
+.errorClass {
+    background-color: rgb(119, 17, 17);
+    border: 10px solid red;
+    justify-content: center;
+}
+
+#error {
+    display: flex;
+    justify-content: center;
+}
+
+#endBlock {
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(26, 26, 112);
+    height: 500px;
+    border-radius: 15px;
+}
+
+.recentCalcs {
+    left: 0;
+    right: 0;
+    background-color: rgb(211, 242, 9);
+    border: 10px solid rgb(109, 111, 3);
+    border-radius: 35px;
+    color: black;
+    padding: 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+#centeredDiv {
+    width: 400px;
+}
+
+.newErrorDiv {
+    left: 0;
+    right: 0;
+    background-color: rgb(119, 10, 8);
+    border: 10px solid rgb(230, 29, 23);
+    border-radius: 35px;
+    color: white;
+    padding: 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'gold/style.css' %}">
+        <meta charset="utf-8">
+    <title>Plan</title>
+</head>
+<body style="color:black">
+    <nav>
+        {% include './navBar.html' %}
+    </nav>
+    <div id="bottomTitleBlock">
+        <h2>Software Development Plan</h2>
+    </div>
+    <div>
+        <h2> Phase 0: Requirements and Specifications </h2>
+            <p id="p1"> 
+                The objective of this assignment is to build a page that converts an entered weight into that weight's worth in troy ounces of gold. It will take 
+                a weight, unit of weight, and a click as input and will fetch the current price of gold from the nasdaq website. Once the equal button is clicked, 
+                the created API is queried and used to make the conversion. In the end a new div is created with that value.
+            </p>
+    </div>
+    <div>
+        <h2> Phase 1: System Analysis </h2>
+        <h4>Data Used by the Program:</h4>
+        <ul>
+            <li>input from user : The user will input the weight they want to convert, the unit that weight is in, and will click the equal button.</li>
+            <li>events : The user has the option to click the new data they just created and delete it. No data is saved to the database.
+            </li>
+        </ul>
+        <h4>Form the Output will Take:</h4>
+        <p>The output will be a top navigation bar that has different links to and from the main page and this plan. The gold page will take the inputs, and display a
+            goldbar-looking div with the worth of that weight in gold. The javascript will do some validation, and the python will also do some validation.
+        </p>
+        <h4>Algorithms and Formula to be Used:</h4>
+        <ul>
+            <li><code>views</code> A view in the unitconv API to convert between values. Also views in the gold app for the plan and the main page.</li>
+            <li><code>templates</code>Template for the main gold page and the plan.</li>
+            <li><code>urls</code>The project's url page directs urls to both the index page and the unitconv app. The API takes in a url as a request and parses it.
+            </li>
+            <li><code>migrations</code>I set up a migration to autopopulate the page with conversion factors in the API.
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2> Phase 2: Implementation </h2>
+            <h4>Templates</h4>
+            <ul>
+                <li><code>index.html</code>Displays the UI.</li>
+                <li><code>Plan.html</code>Current page</li>
+            </ul>
+            <h4>Views</h4>
+            <ul>
+                <li><code>index</code>Renders the index template. Does not need any content in the context variable.</li>
+                <li><code>plan</code>This view also does not need a context variable.</li>
+                <li><code>convert</code>This view is within the univconv app. this doesn't actually display an html page, it just takes in the value, unit, and 
+                desired unit and returns a json object with the new value and the new unit.</li>
+            </ul>
+            <h4>API</h4>
+            <ul>
+                <li><code>convert</code>The needed information is passed through the request object and has the values in that because of the url. This will 
+                parse the url using <code>request.GET.get('from')</code> and the same for the other values. it will use these to create a python dictionary 
+                (very similary to json object) and return a json response of that dictionary. It does this by creating a conversion object and using that object's 
+                conversionValue to convert in the view.</li>
+                <li><code>to AND from</code> I need to make sure the API can convert to troy ounces, and also all other values to other values.</li>
+            </ul>
+            <h4><code>Javascript</code></h4>
+            <ul>
+                <li><code>fetch()</code> The javascript needs to get the current price of gold from the NASDAQ website. It is going to use fetch() with LBMA/GOLD in the 
+                url and my own API key to gather this information. Because it's returning a promise, I don't know when or if it's going to be fulfilled. I need to 
+                write then() blocks in order to handle that. It's going to update the status div in the index.html in order to communicate to the user what is 
+                happening. It also will print errors in that status div if something goes wrong.</li>
+                <li><code>fetch()</code>(to my API). This fetch() is going to use the same then() blocks to catch errors. In the url, it is passing the API to, from, 
+                and value strings so the API can convert them.</li>
+            </ul>
+        <p>I could not figure out how to get my first fetch to the nasdaq website working for the longest time. I did exactly what falor did in the lecture notes 
+            and it was getting to the first <code>then()</code> block but not to the second one. I was on the tutor center for like an hour, turns out, the only thing
+            missing was a <code>return</code> statemenet in the first block to return the response.json() instead of just converting it to json. I also couldn't figure 
+            out how to get the information from the request to my API for a long time. I was using <code>request.POST.get()</code> instead of <code>request.GET.get()</code>
+            . That was really annoying. Starting the API I didn't know how to get the information from the url into the views page but I figured it out after 30 mim.
+        </p>
+    </div>
+    <div>
+        <h2> Phase 3: Testing and Debugging</h2>
+        <p>I used Javascript a lot in debugging. My go-to for debugging javascript is just printing values to the console and seeing it in the dev tools. I still don't 
+            know the equivalent to do in python so I'm struggling when I have to fix errors on the python side of things. I'm going to compare the outputs with my friends 
+            and see if we're getting the same values. 
+        </p>
+    </div>
+    <div>
+        <h2> Phase 4: Deployment</h2>
+        <p>
+            Been constantly committing to Git-lab so we're good to go:).
+        </p>
+    </div>
+    <div>
+        <h2> Phase 5: Maintenence</h2>
+        <p> What parts of the program are sloppily written and hard to understand?:<br> -----I don't think any parts of this program are written sloppily. I got this 
+            assignment done faster than usual so I've had a lot of time to look it over and double check things. <br> Are there parts of your program you don't understand 
+            how they work? <br> ----- I'm still a little unsure of exactly how the GET and POST requests work but I feel like I'm getting the hang of it. I know that there 
+            are more things that fetch() is capable of but I'm not sure how to use the options. Probably should study the API a little bit more.<br> If a bug is reported 
+            in a few months, how long would it take you to find the cause? <br> -----I think I could find the cause pretty easily. I think it would take me only 5 minutes
+             or less because this program isn't huge and I understand most of it.<br> Will your documentation make sense to anybody else/ youself in 6 months time? <br> 
+             -----I would definitely need a large refresher. This stuff is confusing as it is. I assume it would make sense to someone with more experience than me. <br>
+            How easy would it be to add a new feature to the program in a year? <br> ----- It would be super easy, my documentation was really good. <br> Will your 
+            program work after upgrading...<br> ----- your computer's hardware? Depends on a lot of things. I don't really know enough to make a guess. <br> -----the 
+            operating system? Yes because It's still going to use html and javascript the same and http the same. <br> ----- All depends on what is actually changed.
+        </p>
+    </div>
+</body>
+</html>
